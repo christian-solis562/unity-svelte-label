@@ -1,10 +1,16 @@
 <svelte:options tag="unity-label" />
 
 <script lang="ts">
-    // cant use dashed props at the moment
+    // pass in values from parent to update these props
     export let text = `default`;
     export let forvalue = `default`;
-    export let isDisabled = false;
+
+    // can't use dashed props at the moment
+    // export let isDisabled = false;
+    export let isdisabled = false;
+
+    // this is a reactive statement
+    $: labelText = `Text for this label is ${text}`
 </script>
 
-<label for={forvalue} disabled={isDisabled}>{text}</label>
+<label for={forvalue} disabled={isdisabled}>{text}</label>
